@@ -13,6 +13,50 @@ Imagine you are teaching a friend about OOP. They mainly want to understand what
 
 ### Response 1
 
+Okay Class, today we are going to be talking about classes, but not just classes. Today we are going to be talking about inheritance and that applies to classes.
+
+first off, Does anyone know what I mean when I say 'inheritance'....
+No one? Okay, inheritance is when a subclass obtains something from the parent or **_Super_** class that is can then use within its own class
+
+for example, to have inheritance you need Super Class ...
+
+```js
+class Person {
+  // Every Class needs a Constructor
+
+  constructor(name, age) {
+    // Inside the Constructor is where you store the passed in properties that make up the instance of your class (Person)
+
+    this.name = name;
+    this.age = age;
+  }
+  introduce() {
+    return `Hi my name is ${this.name}`;
+  }
+}
+```
+
+now lets create a subclass...
+
+```js
+
+// For class chief to 'inherit' anything, it needs to 'extend' from a super class. In this case the super class is Person
+
+class chief extends Person {
+  constructor(name ,age , occupation) {
+
+    // Because this class extends from the super class Person, you are able to use the constructor in the super class by calling 'super' inside the constructor in the sub class
+
+    super(name, age)
+    this.occupation = occupation
+  }
+
+  super.introduce()
+}
+```
+
+In this example, We created a super class named person. Every person has a name and a age. Therefore, making the subClass of chief extend from the super class allows for it to use the constructor to create the instance of a chief.
+
 ## Prompt 2
 
 The following `friendsManager` object is an example of an interface that is **NOT** consistent and predictable:
@@ -36,6 +80,9 @@ friendsManager.friends.push(42);
 Explain how the code is not consistent or predictable, then provide an example in code that uses closure to make it more consistent and predictable.
 
 ### Response 2
+
+Prototypes, to put it simply, is an object to sits within all instances of objects that chain together properties and methods that all objects should have. Prototype chains end when the next object.prototype is equal to null. It is important to understand prototype chain because it is the fundamentals to implementing inheritance in your super and sub classes.
+
 
 ## Prompt 3
 
@@ -186,3 +233,4 @@ class Person {
 const alice = new Person('Alice', 30);
 console.log(alice.greet());
 ```
+
